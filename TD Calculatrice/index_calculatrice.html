@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/TD Calculatrice/assets/js/script_calculatrice.js"></script>
+    <link rel="stylesheet" href="/TD Calculatrice/assets/css/style_calculatrice.css">
+    <title>Ma Calculatrice</title>
+</head>
+<body>
+      <div id="app">
+        <div id="calWrap">
+            <div class="top">
+                <input type="text" v-model="total" />
+            </div>
+            <div id="keys">
+                <div v-on:click="key(7)">7</div>
+                <div v-on:click="key(8)">8</div>
+                <div v-on:click="key(9)">9</div>
+                <div v-on:click="key('+')">+</div>
+                <div v-on:click="key(4)">4</div>
+                <div v-on:click="key(5)">5</div>
+                <div v-on:click="key(6)">6</div>
+                <div v-on:click="key('-')">-</div>
+                <div v-on:click="key(1)">1</div>
+                <div v-on:click="key(2)">2</div>
+                <div v-on:click="key(3)">3</div>
+                <div v-on:click="key('*')">*</div>
+                <div v-on:click="key(0)">0</div>
+                <div v-on:click="clear()" class="clear">c</div>
+                <div v-on:click="equal()">=</div>
+                <div v-on:click="key('/')">/</div>
+            </div>
+        </div>  
+</body>
+</html>
