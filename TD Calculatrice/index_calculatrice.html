@@ -9,29 +9,91 @@
     <title>Ma Calculatrice</title>
 </head>
 <body>
-      <div id="app">
-        <div id="calWrap">
-            <div class="top">
-                <input type="text" v-model="total" />
+    <div id="app"   v-cloak>
+        <div id="calculator">
+            <div class="screen-container">
+                <div class="result">
+                    <transition name="slide-fade">
+                    <div class="number" :style="{fontSize : fontSize + 'px'}" v-if="tempResult !== ''"  v-cloak>{{ tempResult | number | hugeNumber }}</div>
+                    </transition>
+                </div>
+                <div class="calculation">
+                    <div class="number" v-cloak>{{ calculation | number | calculation}}</div>
+                </div>
             </div>
-            <div id="keys">
-                <div v-on:click="key(7)">7</div>
-                <div v-on:click="key(8)">8</div>
-                <div v-on:click="key(9)">9</div>
-                <div v-on:click="key('+')">+</div>
-                <div v-on:click="key(4)">4</div>
-                <div v-on:click="key(5)">5</div>
-                <div v-on:click="key(6)">6</div>
-                <div v-on:click="key('-')">-</div>
-                <div v-on:click="key(1)">1</div>
-                <div v-on:click="key(2)">2</div>
-                <div v-on:click="key(3)">3</div>
-                <div v-on:click="key('*')">*</div>
-                <div v-on:click="key(0)">0</div>
-                <div v-on:click="clear()" class="clear">c</div>
-                <div v-on:click="equal()">=</div>
-                <div v-on:click="key('/')">/</div>
+            <div class="btn-container">
+                <div class="oper-container">
+                        <div class="btn" id="clear" @click="clear()">
+                            <div class="number">AC</div>
+                        </div>
+                        <div class="btn operations divide" @click="append('/')">
+                            <div class="number">÷</div>
+                        </div>
+                        <div class="btn operations multiplication" @click="append('*')">
+                            <div class="number">×</div>
+                        </div>
+                        <div class="btn operations plus" @click="append('+')">
+                            <div class="number">+</div>
+                        </div>
+                        <div class="btn operations less" @click="append('-')">
+                            <div class="number">-</div>
+                        </div>
+                </div>
+                        
+                <div class="row">
+                    <div class="btn" @click="append('7')">
+                        <div class="number">7</div>
+                    </div>
+                    <div class="btn" @click="append('8')">
+                        <div class="number">8</div>
+                    </div>
+                    <div class="btn" @click="append('9')">
+                        <div class="number">9</div>
+                    </div>
+    <!-- 				<div class="btn" @click="append('/')">÷</div> -->
+                </div>
+                <div class="row">
+                    <div class="btn" @click="append('4')">
+                        <div class="number">4</div>
+                    </div>
+                    <div class="btn" @click="append('5')">
+                        <div class="number">5</div>
+                    </div>
+                    <div class="btn" @click="append('6')">
+                        <div class="number">6</div>
+                    </div>
+    <!-- 				<div class="btn" @click="append('*')">×</div> -->
+                    
+                </div>
+                <div class="row">
+                    <div class="btn" @click="append('1')">
+                        <div class="number">1</div>
+                    </div>
+                    <div class="btn" @click="append('2')">
+                        <div class="number">2</div>
+                    </div>
+                    <div class="btn" @click="append('3')">
+                        <div class="number">3</div>
+                    </div>
+    <!-- 				<div class="btn" @click="append('-')">-</div> -->
+                </div>
+                <div class="row">
+                    <div class="btn" id="dot" @click="append('.')">
+                        <div class="number">.</div>
+                    </div>
+                    <div class="btn" @click="append('0')">
+                        <div class="number">0</div>
+                    </div>
+                                    <div class="btn">
+                        <div class="number"></div>
+                    </div>
+                    <div class="btn" id="result" @click="getResult()">
+                        <div class="number">=</div>
+                    </div>
+    <!-- 				<div class="btn" @click="append('+')">+</div> -->
+                </div>
             </div>
-        </div>  
+        </div>
+    </div> 
 </body>
 </html>
