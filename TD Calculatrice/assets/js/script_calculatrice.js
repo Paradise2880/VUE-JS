@@ -60,18 +60,19 @@
 //     }
 // });
 
-var calculator = new Vue({
-    el: '#calculator',
+new Vue({
+    el: '#app',
     data: {
       expression: ''
     },
     methods: {
-      updateExpression: function (value) {
+      updateExpression(value) {
         this.expression += value;
       },
-      calculate: function () {
+      calculate() {
         this.expression = eval(this.expression);
       }
     }
-  })
+  });
+  
   
