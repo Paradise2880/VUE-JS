@@ -69,31 +69,36 @@
             <button class="button number">0</button>
             <button class="button number">.</button>
         </div> -->
-        <div id="calculator">
-            <input type="text" v-model="expression" disabled />
-            <br><br>
-            <button v-on:click="updateExpression('7')">7</button>
-            <button v-on:click="updateExpression('8')">8</button>
-            <button v-on:click="updateExpression('9')">9</button>
-            <button v-on:click="updateExpression('/')">÷</button>
-            <br>
-            <button v-on:click="updateExpression('4')">4</button>
-            <button v-on:click="updateExpression('5')">5</button>
-            <button v-on:click="updateExpression('6')">6</button>
-            <button v-on:click="updateExpression('*')">x</button>
-            <br>
-            <button v-on:click="updateExpression('1')">1</button>
-            <button v-on:click="updateExpression('2')">2</button>
-            <button v-on:click="updateExpression('3')">3</button>
-            <button v-on:click="updateExpression('-')">-</button>
-            <br>
-            <button v-on:click="updateExpression('0')">0</button>
-            <button v-on:click="updateExpression('.')">.</button>
-            <button v-on:click="calculate()">=</button>
-            <button v-on:click="updateExpression('+')">+</button>
+        <div id="app">
+            <div id="calculator">
+              <div class="expression">{{ expression }}</div>
+              <div class="row">
+                <button v-on:click="updateExpression('7')">7</button>
+                <button v-on:click="updateExpression('8')">8</button>
+                <button v-on:click="updateExpression('9')">9</button>
+                <button class="operator" v-on:click="updateExpression('/')">÷</button>
+              </div>
+              <div class="row">
+                <button v-on:click="updateExpression('4')">4</button>
+                <button v-on:click="updateExpression('5')">5</button>
+                <button v-on:click="updateExpression('6')">6</button>
+                <button class="operator" v-on:click="updateExpression('*')">x</button>
+              </div>
+              <div class="row">
+                <button v-on:click="updateExpression('1')">1</button>
+                <button v-on:click="updateExpression('2')">2</button>
+                <button v-on:click="updateExpression('3')">3</button>
+                <button class="operator" v-on:click="updateExpression('-')">-</button>
+              </div>
+              <div class="row">
+                <button v-on:click="updateExpression('0')">0</button>
+                <button v-on:click="updateExpression('.')">.</button>
+                <button v-on:click="calculate()">=</button>
+                <button class="operator" v-on:click="updateExpression('+')">+</button>
+              </div>
+            </div>
           </div>
           
-    </div>
     <script src="/TD Calculatrice/assets/js/script_calculatrice.js"></script>
 </body>
 </html>
